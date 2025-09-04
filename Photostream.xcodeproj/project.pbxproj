@@ -403,11 +403,12 @@
 		};
 		93F650BB2E68731100C3AE89 /* Debug-DEV */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 93F650982E68731000C3AE89 /* Photostream */;
+			baseConfigurationReferenceRelativePath = "Config/Photostream-dev.xcconfig";
 			buildSettings = {
 				APP_DISPLAY_NAME = "Photostream-DEV";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				BASE_URL = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Photostream/Preview Content\"";
@@ -428,6 +429,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ffabir.Photostream.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG DEV";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -436,11 +438,12 @@
 		};
 		93F650BC2E68731100C3AE89 /* Release-QA */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 93F650982E68731000C3AE89 /* Photostream */;
+			baseConfigurationReferenceRelativePath = "Config/Photostream-qa.xcconfig";
 			buildSettings = {
 				APP_DISPLAY_NAME = "Photostream-QA";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				BASE_URL = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Photostream/Preview Content\"";
@@ -461,6 +464,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ffabir.Photostream.qa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = QA;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -604,11 +608,12 @@
 		};
 		93F650D32E69D39400C3AE89 /* Debug-QA */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 93F650982E68731000C3AE89 /* Photostream */;
+			baseConfigurationReferenceRelativePath = "Config/Photostream-qa.xcconfig";
 			buildSettings = {
 				APP_DISPLAY_NAME = "Photostream-QA";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				BASE_URL = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Photostream/Preview Content\"";
@@ -629,6 +634,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ffabir.Photostream.qa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG QA";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -736,11 +742,12 @@
 		};
 		93F650D72E69D3AB00C3AE89 /* Debug-PROD */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 93F650982E68731000C3AE89 /* Photostream */;
+			baseConfigurationReferenceRelativePath = "Config/Photostream-prod.xcconfig";
 			buildSettings = {
 				APP_DISPLAY_NAME = Photostream;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				BASE_URL = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Photostream/Preview Content\"";
@@ -761,6 +768,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ffabir.Photostream.prod;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG PROD";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -861,11 +869,12 @@
 		};
 		93F650DB2E69D3B700C3AE89 /* Release-DEV */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 93F650982E68731000C3AE89 /* Photostream */;
+			baseConfigurationReferenceRelativePath = "Config/Photostream-dev.xcconfig";
 			buildSettings = {
 				APP_DISPLAY_NAME = "Photostream-DEV";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				BASE_URL = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Photostream/Preview Content\"";
@@ -886,6 +895,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ffabir.Photostream.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEV;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -986,11 +996,12 @@
 		};
 		93F650DF2E69D3D900C3AE89 /* Release-PROD */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 93F650982E68731000C3AE89 /* Photostream */;
+			baseConfigurationReferenceRelativePath = "Config/Photostream-prod.xcconfig";
 			buildSettings = {
 				APP_DISPLAY_NAME = Photostream;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				BASE_URL = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Photostream/Preview Content\"";
@@ -1011,6 +1022,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ffabir.Photostream.prod;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = PROD;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
