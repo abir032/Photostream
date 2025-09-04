@@ -15,6 +15,9 @@ build/
 DerivedData/
 *.ipa
 
+#Config
+*.xcconfig
+
 # Carthage
 Carthage/
 
