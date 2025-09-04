@@ -5,3 +5,23 @@
 //  Created by Md Fahim Faez Abir on 4/9/25.
 //
 
+// Photo.swift
+import Foundation
+
+struct PhotoModel: Identifiable, Equatable {
+    let id: String
+    let author: String
+    let width: Int
+    let height: Int
+    let url: URL?
+    let downloadUrl: URL?
+
+    init?(from dto: PicsumPhotoDTO) {
+        self.id = dto.id ?? ""
+        self.author = dto.author ?? ""
+        self.width = dto.width ?? 0
+        self.height = dto.height ?? 0
+        self.url = URL(string: dto.url ?? "")
+        self.downloadUrl = URL(string: dto.downloadUrl ?? "")
+    }
+}
