@@ -16,6 +16,11 @@ struct PhotoDetailView: View {
     @State private var showDownloadAlert = false
     @State private var downloadStatus: DownloadStatus = .none
     
+    //Zoom scale
+    @State private var scale: CGFloat = 1.0
+    @State private var lastScale: CGFloat = 1.0
+    @GestureState private var magnifyState: CGFloat = 1.0
+    
     enum DownloadStatus {
         case none
         case success
@@ -31,6 +36,24 @@ struct PhotoDetailView: View {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        .scaleEffect(scale * magnifyState)
+                        .gesture(
+                            MagnificationGesture()
+                                .updating($magnifyState) { currentState, gestureState, _ in
+                                    gestureState = currentState
+                                }
+                                .onEnded { value in
+                                    scale = min(max(scale * value, 1), 4)
+                                    lastScale = scale
+                                }
+                        )
+                        .gesture(
+                            TapGesture(count: 2).onEnded {
+                                withAnimation {
+                                    scale = scale > 1 ? 1 : 2
+                                }
+                            }
+                        )
                 } placeholder: {
                     ProgressView()
                         .tint(.white)
@@ -69,10 +92,10 @@ struct PhotoDetailView: View {
                         message: Text("Image saved to your photos"),
                         dismissButton: .default(Text("OK"))
                     )
-                case .failure(let error):
+                case .failure( _):
                     Alert(
                         title: Text("Error"),
-                        message: Text(error.localizedDescription),
+                        message: Text("Failed to save image"),
                         dismissButton: .default(Text("OK"))
                     )
                 case .none:
