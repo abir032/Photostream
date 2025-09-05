@@ -1,32 +1,39 @@
 import Foundation
 import Network
 
-class NetworkMonitor: ObservableObject {
-    private let networkMonitor = NWPathMonitor()
-    private let workerQueue = DispatchQueue(label: "NetworkMonitor")
-    @Published private var isConnected = false
-
+@MainActor
+final class NetworkMonitor: ObservableObject {
+    private let monitor: NWPathMonitor
+    private let queue = DispatchQueue(label: "NetworkMonitor")
+    @Published private(set) var isConnected = false
+    @Published private(set) var connectionType = NWInterface.InterfaceType.other
+    
+    static let shared = NetworkMonitor()
+    
     init() {
-        checkConnection()
+        monitor = NWPathMonitor()
+        setupMonitor()
     }
-
-    private func checkConnection() {
-        networkMonitor.pathUpdateHandler = { [weak self] path in
+    
+    private func setupMonitor() {
+        monitor.pathUpdateHandler = { [weak self] path in
             DispatchQueue.main.async {
                 self?.isConnected = path.status == .satisfied
+                self?.connectionType = path.availableInterfaces.first?.type ?? .other
             }
         }
-        networkMonitor.start(queue: workerQueue)
+        monitor.start(queue: queue)
     }
-
-    func checkNetworkBeforeAPI() -> Bool {
-        if isConnected {
-            return true
-        } else {
-            return false
-        }
+    
+    func checkNetworkConnection() -> Bool {
+        let hasConnection = isConnected
+        let validInterface = connectionType == .cellular ||
+        connectionType == .wifi ||
+        connectionType == .wiredEthernet
+        return hasConnection && validInterface
     }
+    
     deinit {
-        networkMonitor.cancel()
+        monitor.cancel()
     }
 }

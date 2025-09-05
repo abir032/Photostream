@@ -14,7 +14,7 @@ enum Configuration {
         }
         return value
     }
-
+    
     static var apiBaseURL: String? {
         do {
             let baseUrl = try value(for: Constants.API.baseURlKey)
