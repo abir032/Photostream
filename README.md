@@ -5,7 +5,6 @@ Photostream is an iOS application that showcases a beautiful photo gallery using
 ## Features
 - Browse photos in grid layout
 - View full screen photo
-- Clean and intuitive UI built with SwiftUI
 - Download jpeg photos
 - pagination and pull refresh
 - image caching
