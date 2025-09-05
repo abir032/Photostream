@@ -37,4 +37,19 @@ enum AppError: Error, LocalizedError {
             return "No data received from server"
         }
     }
+    
+    static func handleError(_ error: Error) -> String {
+        if let appError = error as? AppError {
+            switch appError {
+            case .networkError:
+                return "No internet connection. Please check your network and try again."
+            case .serverError(let statusCode):
+                return "Temporary server issue. Please try again in a moment."
+            default:
+                return "Something went wrong. Please try again."
+            }
+        } else {
+            return "Something went wrong. Please try again."
+        }
+    }
 }
