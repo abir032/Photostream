@@ -10,18 +10,20 @@ import SwiftUI
 // MARK: - Loading Skeleton Grid
 struct LoadingSkeletonGrid: View {
     private let spacing: CGFloat = 8
-    
+
     var body: some View {
-        LazyVStack(spacing: spacing) {
-            ForEach(0..<4, id: \.self) { groupIndex in
-                if groupIndex == 0 {
-                    SkeletonPhotoRow(layout: .single)
-                } else {
-                    SkeletonPhotoRow(layout: .triple)
+        ScrollView {
+            LazyVStack(spacing: spacing) {
+                ForEach(0..<4, id: \.self) { groupIndex in
+                    if groupIndex == 0 {
+                        SkeletonPhotoRow(layout: .single)
+                    } else {
+                        SkeletonPhotoRow(layout: .triple)
+                    }
                 }
             }
+            .padding(.horizontal, 8)
         }
-        .padding(.horizontal, 8)
     }
 }
 
