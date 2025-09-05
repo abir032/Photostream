@@ -59,7 +59,7 @@ struct HomeView: View {
                 }
             }
             .sheet(item: $selectedPhoto) { photo in
-                //Present detail view
+                PhotoDetailView(photo: photo)
             }
             .alert("Error", isPresented: $viewModel.showError) {
                 Button("Retry") {
