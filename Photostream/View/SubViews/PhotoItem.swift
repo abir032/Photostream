@@ -40,6 +40,11 @@ struct PhotoItem: View {
                     .fill(Color.gray.opacity(0.2))
                     .frame(width: width, height: height)
                     .shimmer()
+                    .overlay(
+                        ProgressView()
+                            .scaleEffect(0.8)
+                            .tint(.gray)
+                    )
             @unknown default:
                 EmptyView()
             }
