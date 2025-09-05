@@ -14,7 +14,7 @@ struct PicsumPhotoDTO: Codable, Identifiable {
     let height: Int?
     let url: String?
     let downloadUrl: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case author

@@ -43,7 +43,7 @@ enum AppError: Error, LocalizedError {
             switch appError {
             case .networkError:
                 return "No internet connection. Please check your network and try again."
-            case .serverError(let statusCode):
+            case .serverError(_):
                 return "Temporary server issue. Please try again in a moment."
             default:
                 return "Something went wrong. Please try again."

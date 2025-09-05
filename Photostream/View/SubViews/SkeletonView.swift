@@ -10,7 +10,7 @@ import SwiftUI
 // MARK: - Loading Skeleton Grid
 struct LoadingSkeletonGrid: View {
     private let spacing: CGFloat = 8
-
+    
     var body: some View {
         ScrollView {
             LazyVStack(spacing: spacing) {
@@ -31,7 +31,7 @@ struct LoadingSkeletonGrid: View {
 struct SkeletonPhotoRow: View {
     let layout: PhotoGroup.GroupType
     private let spacing: CGFloat = 4
-
+    
     var body: some View {
         GeometryReader { geometry in
             HStack(spacing: spacing) {
@@ -55,7 +55,7 @@ struct SkeletonPhotoRow: View {
         }
         .frame(height: layout == .single ? 300 : calculateTripleHeight())
     }
-
+    
     private func calculateTripleHeight() -> CGFloat {
         let width = UIScreen.main.bounds.width - 16
         let itemWidth = (width - spacing * 2) / 3
@@ -67,7 +67,7 @@ struct SkeletonPhotoRow: View {
 struct SkeletonPhotoItem: View {
     let width: CGFloat
     let height: CGFloat
-
+    
     var body: some View {
         VStack(spacing: 0) {
             RoundedRectangle(cornerRadius: 8)
@@ -109,7 +109,7 @@ struct LoadingMoreView: View {
 // MARK: - Empty State View
 struct EmptyStateView: View {
     let onRetry: () async -> Void
-
+    
     var body: some View {
         VStack(spacing: 16) {
             Image(systemName: "photo.stack")

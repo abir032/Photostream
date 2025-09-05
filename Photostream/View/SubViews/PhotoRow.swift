@@ -11,9 +11,9 @@ struct PhotoRow: View {
     let photos: [PhotoModel]
     let layout: PhotoGroup.GroupType
     let onPhotoTap: (PhotoModel) -> Void
-
+    
     private let spacing: CGFloat = 4
-
+    
     var body: some View {
         GeometryReader { geometry in
             HStack(spacing: spacing) {
@@ -50,13 +50,13 @@ struct PhotoRow: View {
         }
         .frame(height: calculateRowHeight(geometry: nil))
     }
-
+    
     private func calculateSinglePhotoHeight(photo: PhotoModel, width: CGFloat) -> CGFloat {
         let aspectRatio = CGFloat(photo.height) / CGFloat(photo.width)
         let calculatedHeight = width * aspectRatio
         return min(max(calculatedHeight, 200), 400)
     }
-
+    
     private func calculateRowHeight(geometry: GeometryProxy?) -> CGFloat {
         switch layout {
         case .single:

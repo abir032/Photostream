@@ -22,7 +22,7 @@ extension View {
                 .offset(x: -250)
                 .animation(
                     .easeInOut(duration: 1.5)
-                        .repeatForever(autoreverses: false),
+                    .repeatForever(autoreverses: false),
                     value: UUID()
                 )
         )

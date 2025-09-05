@@ -5,7 +5,6 @@
 //  Created by Md Fahim Faez Abir on 4/9/25.
 //
 
-// Photo.swift
 import Foundation
 
 struct PhotoModel: Identifiable, Equatable {
@@ -16,7 +15,7 @@ struct PhotoModel: Identifiable, Equatable {
     let url: URL?
     let downloadUrl: URL?
     var visitedCount: Int = 0
-
+    
     init?(from dto: PicsumPhotoDTO) {
         self.id = dto.id ?? ""
         self.author = dto.author ?? ""

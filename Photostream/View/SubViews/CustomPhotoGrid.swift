@@ -9,13 +9,13 @@ import SwiftUI
 
 // MARK: - Custom Photo Grid
 struct CustomPhotoGrid: View {
-
+    
     let photos: [PhotoModel]
     let onPhotoTap: (PhotoModel) -> Void
     let onLoadMore: (PhotoModel) -> Void
-
+    
     private let spacing: CGFloat = 8
-
+    
     var body: some View {
         LazyVStack(spacing: spacing) {
             ForEach(Array(groupedPhotos.enumerated()), id: \.offset) { index, group in
@@ -38,7 +38,7 @@ struct CustomPhotoGrid: View {
             }
         }
     }
-
+    
     private var groupedPhotos: [PhotoGroup] {
         var groups: [PhotoGroup] = []
         var index = 0
@@ -56,7 +56,7 @@ struct CustomPhotoGrid: View {
                 index = endIndex
             }
         }
-
+        
         return groups
     }
 }

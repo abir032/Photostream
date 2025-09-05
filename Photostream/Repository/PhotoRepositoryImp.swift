@@ -14,7 +14,7 @@ final class PhotoRepositoryImpl: PhotoRepositoryProtocol {
             }
             let url = base_url + Constants.API.endpointList + "?\(Constants.API.querryParamPageKey)=\(page)&\(Constants.API.querryParamLimitKey)=\(limit)"
             let result: [PicsumPhotoDTO] = try await APIService.shared.fetchData(from: url)
-            //dump(result)
+            
             let photoModels: [PhotoModel] = result.compactMap { dto in
                 PhotoModel(from: dto)
             }
