@@ -51,7 +51,6 @@ class APIService {
 
         do {
             let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
             let result = try decoder.decode(T.self, from: data)
             saveToCache(data: data, for: urlString)
             return result
