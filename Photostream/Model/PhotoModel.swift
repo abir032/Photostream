@@ -15,6 +15,7 @@ struct PhotoModel: Identifiable, Equatable {
     let height: Int
     let url: URL?
     let downloadUrl: URL?
+    var visitedCount: Int = 0
 
     init?(from dto: PicsumPhotoDTO) {
         self.id = dto.id ?? ""
