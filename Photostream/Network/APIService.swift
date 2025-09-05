@@ -36,6 +36,7 @@ class APIService {
         }
 
         if let cachedResult: T = try? fetchFromCache(for: urlString) {
+            debugPrint("!1001: Returning cached result")
             return cachedResult
         }
 
@@ -69,7 +70,6 @@ class APIService {
         }
         do {
             let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
             return try decoder.decode(T.self, from: cachedData)
         } catch {
             throw AppError.decodingError
