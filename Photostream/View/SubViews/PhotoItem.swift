@@ -107,7 +107,7 @@ class ImageCache {
 
 struct CachedImage {
     private let url: URL?
-    @MainActor private let cache = ImageCache.shared
+    private let cache = ImageCache.shared
     
     init(url: URL?) {
         self.url = url
@@ -118,24 +118,30 @@ struct CachedImage {
             return .failure(URLError(.badURL))
         }
         
-        if let cachedImage = await cache.get(url.absoluteString) {
-            return .success(Image(uiImage: cachedImage))
+        if let cachedImage = cache.get(url.absoluteString) {
+            return await MainActor.run {
+                .success(Image(uiImage: cachedImage))
+            }
         }
         
         let request = URLRequest(url: url)
         if let cachedResponse = URLCache.shared.cachedResponse(for: request),
            let uiImage = UIImage(data: cachedResponse.data) {
-            await cache.set(uiImage, for: url.absoluteString)
-            return .success(Image(uiImage: uiImage))
+            cache.set(uiImage, for: url.absoluteString)
+            return await MainActor.run {
+                .success(Image(uiImage: uiImage))
+            }
         }
         
         do {
             let (data, response) = try await URLSession.shared.data(for: request)
             
             guard let uiImage = UIImage(data: data) else {
-                return .failure(URLError(.cannotDecodeRawData))
+                return await MainActor.run {
+                    .failure(URLError(.cannotDecodeRawData))
+                }
             }
-            await cache.set(uiImage, for: url.absoluteString)
+            cache.set(uiImage, for: url.absoluteString)
             let cachedResponse = CachedURLResponse(
                 response: response,
                 data: data,
@@ -143,7 +149,9 @@ struct CachedImage {
                 storagePolicy: .allowed
             )
             URLCache.shared.storeCachedResponse(cachedResponse, for: request)
-            return .success(Image(uiImage: uiImage))
+            return await MainActor.run {
+                .success(Image(uiImage: uiImage))
+            }
         } catch {
             return .failure(error)
         }
